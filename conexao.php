@@ -1,15 +1,17 @@
 <?php 
 
-$host = "localhost";
+$host = "localhost:8080";
 $user = "root";
 $pass = "usbw";
 $bank = "empresa_de_treinamento";
 
-$conn = new mysqli($host,$user,$pass,$bank);
+$link = mysqli_connect($host,$user,$pass,$bank);
 
-If($conn->connect_error) {
-    die(" Falha de conexão " . $conn->connect_error);
+If(mysqli_connect_errno($link)) {
+    echo "Erro de conexão!";
 }
-
+else {
+    echo = "Conexão OK!";
+}
 
 ?>

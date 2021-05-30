@@ -1,0 +1,19 @@
+<?php
+// ao salvar, escolher codificação ISO 8859-1
+// verificar diferença com include_once
+	require_once "conexao_estr.php"; // inclui o script indicado, se ele não estiver previamente aberto
+
+	// armazena a instrução MySQL
+	$sql = "INSERT INTO meusconvidados (nome, sobrenome, email) VALUES ('Maria', 'Ninguém', 'marianinguem@exemplo.com')";
+
+	// executando a instrução de inserção de novo registro na tabela
+	if (mysqli_query($conn, $sql)) {
+		$last_id = mysqli_insert_id($conn); // retorna o id (código) do último registro inserido ou alterado
+	  echo "Novo registro inserido com sucesso. O último identificador (código) inserido é: " . $last_id;
+	} else {
+	  echo "Erro: " . $sql . "<br>" . mysqli_error($conn);
+	}
+
+	// Fecha a conexão
+	mysqli_close($conn);
+?>
